@@ -32,3 +32,27 @@ Uses the built-in Seaborn diamonds dataset:
 54,000 rows of diamond data
 
 Columns: carat, cut, color, clarity, price, dimensions (x, y, z)
+
+### How It Meets Project Requirements
+Reactive calc: filtered_data() used by text, table, and plots.
+
+UI Inputs in Sidebar: Dropdown, checkbox group, slider.
+
+Main Content Outputs: Card with text, table, two charts.
+
+Template: Uses ui.page_opts (basic template, no columns or navigation required).
+
+Visual Enhancements: Emojis added to title and summary for engagement.
+
+### Resources
+Dataset
+Diamonds dataset (CSV)
+
+Input Component API
+ui.input_slider – Shiny Express API
+
+Output Component API (Data)
+ui.HTML – Shiny Express API
+
+Output Component API (Charts)
+render.plot – Shiny Express API
