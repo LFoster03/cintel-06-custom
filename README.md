@@ -56,3 +56,64 @@ ui.HTML – Shiny Express API
 
 Output Component API (Charts)
 render.plot – Shiny Express API
+
+## Additional Features (Live Simulation)
+#### Simulated Metric
+A reactive calc fake_metric() generates a random “average price” every 5 seconds to mimic live data.
+
+Displayed in a value box with an emoji: 💰.
+
+Automatically refreshes without user input (demonstrates reactive.invalidate_later()).
+
+#### Live Histogram
+Tracks the last 50 simulated metric values using a reactive value price_history.
+
+Uses @reactive.effect combined with @reactive.event(fake_metric) to append new data points only when fake_metric changes (avoiding infinite loops).
+
+Plots a histogram (orange) of simulated price values updating every 5 seconds.
+
+#### How It Works
+Reactive Flow
+
+fake_metric() → triggers every 5 seconds.
+
+@reactive.effect listens for changes and appends to price_history.
+
+simulated_price_histogram() renders a histogram of recent values.
+
+Performance Handling
+
+price_history is trimmed to last 50 values to prevent memory bloat or slow rendering.
+
+UI Placement
+
+Value box and live histogram are shown in the main content area alongside filtered data visuals.
+
+#### Project Requirement Highlights
+Reactive Aspects:
+
+filtered_data() for user-driven filtering
+
+fake_metric() + price_history for time-driven updates
+
+Multiple Output Types:
+
+Static histogram & scatterplot (filtered diamonds)
+
+Live histogram (simulated metric)
+
+Summary card and HTML table
+
+Demonstrates advanced reactivity:
+
+Combination of reactive.calc, reactive.event, and reactive.value.
+
+#### Helpful API References
+Reactive calc: reactive.calc()
+
+Reactive effect/event: reactive.effect() and reactive.event()
+
+Value box: ui.value_box()
+
+Plot output: render.plot()
+
