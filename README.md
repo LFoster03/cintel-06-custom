@@ -1,4 +1,4 @@
-# cintel-06-custom Diamonds Explorer 💎
+# Diamonds Explorer 💎
 An interactive Shiny for Python app built with Shiny Express to explore the Seaborn diamonds dataset. Users can filter diamonds by cut, color, and price range, and view filtered data as tables and visualizations.
 
 ## Features
